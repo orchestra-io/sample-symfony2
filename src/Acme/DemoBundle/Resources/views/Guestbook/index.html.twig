@@ -1,0 +1,20 @@
+{% extends 'AcmeDemoBundle::layout.html.twig' %}
+
+{% block title %}Symfony - Guestbook{% endblock %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1>Orchestra Doctrine test.</h1>
+
+    <p>This uses Doctrine ORM to render a list of entries from a database</p>
+
+    <ul>
+    {% for guestbook in guestbooks %}
+        <li>{{ guestbook.content|escape }}</li>
+    {% else %}
+        <li>No entries</li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

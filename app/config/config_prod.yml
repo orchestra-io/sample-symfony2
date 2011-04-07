@@ -1,0 +1,25 @@
+imports:
+    - { resource: config.yml }
+
+monolog:
+    handlers:
+        main:
+            type:         fingerscrossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  'null'
+
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver:   'pdo_mysql'
+                host:     '10.194.111.8'
+                dbname:   'db_XXXXX'
+                user:     'user_XXXXX'
+                password: 'XXXXX'
+
+    orm:
+        proxy_dir: %kernel.root_dir%/cache/%kernel.environment%/doctrine/orm/Proxies

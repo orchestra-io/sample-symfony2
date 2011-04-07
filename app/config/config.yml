@@ -1,0 +1,41 @@
+imports:
+    - { resource: parameters.ini }
+    - { resource: security.yml }
+
+framework:
+    charset:       UTF-8
+    error_handler: null
+    csrf_protection:
+        enabled: true
+        secret: %csrf_secret%
+    router:        { resource: "%kernel.root_dir%/config/routing.yml" }
+    validation:    { enabled: true, annotations: true }
+    templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
+    session:
+        default_locale: %locale%
+        lifetime:       3600
+        auto_start:     true
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                driver:   pdo_mysql
+                host:     127.0.0.1
+                dbname:   sf2-standard
+                user:     root
+                password: 
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        default_entity_manager: default
+        entity_managers:
+            default:
+                mappings:
+                    AcmeDemoBundle: ~
