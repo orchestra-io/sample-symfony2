@@ -28,6 +28,10 @@ class AppKernel extends Kernel
     public function getCacheDir()
     {
         if ($this->getEnvironment() == 'prod') {
+            if (!is_dir(sys_get_temp_dir() . '/sf2standard/cache')) {
+                mkdir(sys_get_temp_dir() . '/sf2standard/cache', 0777, true);
+            }
+
             return sys_get_temp_dir() . '/sf2standard/cache';
         }
 
@@ -37,6 +41,11 @@ class AppKernel extends Kernel
     public function getLogDir()
     {
         if ($this->getEnvironment() == 'prod') {
+            if (!is_dir(sys_get_temp_dir() . '/sf2standard/logs')) {
+                mkdir(sys_get_temp_dir() . '/sf2standard/logs', 0777, true);
+            }
+
+
             return sys_get_temp_dir() . '/sf2standard/logs';
         }
 
