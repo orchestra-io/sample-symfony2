@@ -1,0 +1,7 @@
+app/logs/*
+app/cache/*
+!app/cache/prod/doctrine
+web/bundles
+bin
+._*
+.DS_Store 

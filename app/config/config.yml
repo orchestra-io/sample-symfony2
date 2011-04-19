@@ -39,3 +39,8 @@ doctrine:
             default:
                 mappings:
                     AcmeDemoBundle: ~
+
+parameters:
+    s3:
+        access_key_id: XXX
+        secret_access_key: YYY

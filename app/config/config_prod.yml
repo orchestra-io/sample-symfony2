@@ -23,3 +23,11 @@ doctrine:
 
     orm:
         proxy_dir: %kernel.root_dir%/cache/%kernel.environment%/doctrine/orm/Proxies
+
+monolog:
+    handlers:
+        nested:
+            type:  stream
+            path:  s3://bucket-name/folder-name/%kernel.environment%.log
+            level: debug
+
