@@ -1,15 +1,6 @@
 imports:
     - { resource: config.yml }
 
-monolog:
-    handlers:
-        main:
-            type:         fingerscrossed
-            action_level: error
-            handler:      nested
-        nested:
-            type:  'null'
-
 doctrine:
     dbal:
         default_connection: default
@@ -28,6 +19,5 @@ monolog:
     handlers:
         nested:
             type:  stream
-            path:  s3://bucket-name/folder-name/%kernel.environment%.log
+            path:  s3://orchestra-app-logs/%kernel.environment%.log
             level: debug
-

@@ -27,6 +27,16 @@ set_include_path(
     dirname(__DIR__) . '/vendor/pear/'
 );
 
+require_once 'Services/Amazon/S3.php';
+require_once 'Services/Amazon/S3/Stream.php';
+
+Services_Amazon_S3_Stream::register('s3',
+    array('access_key_id'     => 'xxx',
+          'secret_access_key' => 'yyy',
+          'acl' => 'public-read',
+    )
+);
+
 $loader->registerPrefixFallback(array(
     __DIR__.'/../vendor/symfony/src/Symfony/Component/Locale/Resources/stubs',
 ));
